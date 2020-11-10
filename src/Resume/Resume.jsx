@@ -16,6 +16,9 @@ import Awards from './Awards';
 import Skills from './Skills';
 import Education from './Education';
 import useWindowDimensions from '../ResizeWindow';
+import { useState, useEffect } from 'react';
+import { getUser } from '../Utils/HttpUtils';
+
 
 const useStyles = makeStyles((theme) =>({
   card: {
@@ -51,10 +54,26 @@ const useStyles = makeStyles((theme) =>({
   },
 }));
 
-export default function Resume() {
+// async function getUser(userId){
+//   const response = await getUser(userId);
+//   return response;
+// }
+
+export default function Resume(props) {
   const classes = useStyles();
   const {height, width} = useWindowDimensions();
+  const [user, setUser] = useState(null);
+  const [userInfo, setUserInfo] = useState(null);
 
+  console.log(props.userId);
+  useEffect(() => {
+    async function _getUser(){
+      const response = await getUser(props.userId);
+      setUser(response);
+      setUserInfo(response);
+    }
+    _getUser();
+  }, []);
   return (
     width > 1000 
       ? <Grid container spacing={4} className={classes.cardGrid}>
@@ -92,6 +111,6 @@ export default function Resume() {
   );
 }
 
-// FeaturedPost.propTypes = {
-//   post: PropTypes.object,
-// };
+Resume.propTypes = {
+  userId: PropTypes.object,
+};

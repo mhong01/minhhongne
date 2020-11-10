@@ -13,7 +13,6 @@ import PhoneIphoneIcon from '@material-ui/icons/PhoneIphone';
 import EmailIcon from '@material-ui/icons/Email';
 import LinkedInIcon from '@material-ui/icons/LinkedIn';
 import GitHubIcon from '@material-ui/icons/GitHub';
-import {getUsers} from './../Utils/HttpUtils';
 
 const useStyles = makeStyles({
   card: {
