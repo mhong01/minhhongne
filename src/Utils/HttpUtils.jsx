@@ -6,7 +6,7 @@ const instance = axios.create({
     // timeout: 1000,
     header: {
       'Content-Type':'application/json',
-      'Access-Control-Allow-Origin' : '*'}
+      'Access-Control-Allow-Origin' : 'http://localhost:3000'}
 });
 
 export async function getUsers(){
