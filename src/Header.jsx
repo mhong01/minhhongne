@@ -53,9 +53,9 @@ export default function Header(props) {
         <IconButton>
           <SearchIcon />
         </IconButton>
-        <Button variant="outlined" size="small">
+        {/* <Button variant="outlined" size="small">
           Sign up
-        </Button>
+        </Button> */}
       </Toolbar>
       <Toolbar component="nav" variant="dense" className={classes.toolbarSecondary}>
         {sections.map((section) => (

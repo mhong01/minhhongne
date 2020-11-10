@@ -1,5 +1,28 @@
 import React, {Component} from 'react';
 
-export default class HttpUtils extends Component{
-    
+const axios = require('axios');
+const instance = axios.create({
+    baseURL: 'http://localhost:8000/',
+    timeout: 1000,
+    header: {'Content-Type':'application/json'}
+});
+
+export async function getUsers(){
+    try {
+        const response = await instance.get('users/');
+        console.log(response);
+      } catch (error) {
+        console.error(error);
+      }
 }
+
+export async function getUserInfo(userInfoPath){
+    try {
+        const response = await instance.get(userInfoPath);
+        console.log(response);
+    } catch(error){
+        console.error(error);
+    }
+}
+
+
